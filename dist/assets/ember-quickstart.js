@@ -2,6 +2,14 @@
 
 
 
+define('ember-quickstart/adapters/application', ['exports', 'ember-data'], function (exports, _emberData) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = _emberData.default.RESTAdapter.extend({});
+});
 define('ember-quickstart/app', ['exports', 'ember-quickstart/resolver', 'ember-load-initializers', 'ember-quickstart/config/environment'], function (exports, _resolver, _emberLoadInitializers, _environment) {
   'use strict';
 
@@ -201,6 +209,57 @@ define('ember-quickstart/initializers/container-debug-adapter', ['exports', 'emb
     }
   };
 });
+define('ember-quickstart/initializers/ember-cli-mirage', ['exports', 'ember-quickstart/config/environment', 'ember-quickstart/mirage/config', 'ember-cli-mirage/get-rfc232-test-context', 'ember-cli-mirage/start-mirage'], function (exports, _environment, _config, _getRfc232TestContext, _startMirage) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.startMirage = startMirage;
+  exports.default = {
+    name: 'ember-cli-mirage',
+    initialize(application) {
+      if (_config.default) {
+        application.register('mirage:base-config', _config.default, { instantiate: false });
+      }
+      if (_config.testConfig) {
+        application.register('mirage:test-config', _config.testConfig, { instantiate: false });
+      }
+
+      _environment.default['ember-cli-mirage'] = _environment.default['ember-cli-mirage'] || {};
+      if (_shouldUseMirage(_environment.default.environment, _environment.default['ember-cli-mirage'])) {
+        startMirage(_environment.default);
+      }
+    }
+  };
+  function startMirage(env = _environment.default) {
+    return (0, _startMirage.default)(null, { env, baseConfig: _config.default, testConfig: _config.testConfig });
+  }
+
+  function _shouldUseMirage(env, addonConfig) {
+    if (typeof FastBoot !== 'undefined') {
+      return false;
+    }
+    if ((0, _getRfc232TestContext.default)()) {
+      return false;
+    }
+    let userDeclaredEnabled = typeof addonConfig.enabled !== 'undefined';
+    let defaultEnabled = _defaultEnabled(env, addonConfig);
+
+    return userDeclaredEnabled ? addonConfig.enabled : defaultEnabled;
+  }
+
+  /*
+    Returns a boolean specifying the default behavior for whether
+    to initialize Mirage.
+  */
+  function _defaultEnabled(env, addonConfig) {
+    let usingInDev = env === 'development' && !addonConfig.usingProxy;
+    let usingInTest = env === 'test';
+
+    return usingInDev || usingInTest;
+  }
+});
 define('ember-quickstart/initializers/ember-data', ['exports', 'ember-data/setup-container', 'ember-data'], function (exports, _setupContainer) {
   'use strict';
 
@@ -262,6 +321,19 @@ define('ember-quickstart/initializers/export-application-global', ['exports', 'e
     initialize: initialize
   };
 });
+define('ember-quickstart/instance-initializers/ember-cli-mirage-autostart', ['exports', 'ember-cli-mirage/instance-initializers/ember-cli-mirage-autostart'], function (exports, _emberCliMirageAutostart) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function () {
+      return _emberCliMirageAutostart.default;
+    }
+  });
+});
 define("ember-quickstart/instance-initializers/ember-data", ["exports", "ember-data/initialize-store-service"], function (exports, _initializeStoreService) {
   "use strict";
 
@@ -272,6 +344,88 @@ define("ember-quickstart/instance-initializers/ember-data", ["exports", "ember-d
     name: "ember-data",
     initialize: _initializeStoreService.default
   };
+});
+define('ember-quickstart/mirage/config', ['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  exports.default = function () {
+
+    // These comments are here to help you get started. Feel free to delete them.
+
+    /*
+      Config (with defaults).
+       Note: these only affect routes defined *after* them!
+    */
+
+    // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
+    // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
+    // this.timing = 400;      // delay for each request, automatically set to 0 during testing
+    this.get('/books');
+    /*
+      Shorthand cheatsheet:
+       this.get('/posts');
+      this.post('/posts');
+      this.get('/posts/:id');
+      this.put('/posts/:id'); // or this.patch
+      this.del('/posts/:id');
+       http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
+    */
+  };
+});
+define('ember-quickstart/mirage/factories/book', ['exports', 'ember-cli-mirage'], function (exports, _emberCliMirage) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = _emberCliMirage.Factory.extend({
+		title: _emberCliMirage.faker.lorem.sentence,
+		author() {
+			return _emberCliMirage.faker.name.findName();
+		},
+		year: _emberCliMirage.faker.date.past
+	});
+});
+define('ember-quickstart/mirage/scenarios/default', ['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  exports.default = function (server) {
+
+    /*
+      Seed your development database using your factories.
+      This data will not be loaded in your tests.
+    */
+
+    server.createList('book', 10);
+  };
+});
+define('ember-quickstart/mirage/serializers/application', ['exports', 'ember-cli-mirage'], function (exports, _emberCliMirage) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = _emberCliMirage.JSONAPISerializer.extend({});
+});
+define('ember-quickstart/models/book', ['exports', 'ember-data'], function (exports, _emberData) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = _emberData.default.Model.extend({
+    title: _emberData.default.attr('string'),
+    author: _emberData.default.attr('string'),
+    year: _emberData.default.attr('date')
+  });
 });
 define('ember-quickstart/resolver', ['exports', 'ember-resolver'], function (exports, _emberResolver) {
   'use strict';
@@ -301,6 +455,23 @@ define('ember-quickstart/router', ['exports', 'ember-quickstart/config/environme
   });
 
   exports.default = Router;
+});
+define('ember-quickstart/routes/application', ['exports'], function (exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = Ember.Route.extend({
+		model() {
+			return this.get('store').findAll('book') /*[{title:"sasa",author:"asdasdas",date:"28-03-2018"},
+                                            {title:"sasa",author:"asdasdas",date:"28-03-2018"},
+                                            {title:"sasa",author:"asdasdas",date:"28-03-2018"},
+                                            {title:"sasa",author:"asdasdas",date:"28-03-2018"},
+                                            {title:"sasa",author:"asdasdas",date:"28-03-2018"}
+                                            ]*/;
+		}
+	});
 });
 define('ember-quickstart/routes/papers', ['exports'], function (exports) {
   'use strict';
@@ -337,7 +508,7 @@ define("ember-quickstart/templates/application", ["exports"], function (exports)
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "zbVlV7K5", "block": "{\"symbols\":[\"office\",\"prop\",\"prop\"],\"statements\":[[4,\"link-to\",[\"application\"],null,{\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9]],\"parameters\":[]},null],[0,\"\\n\"],[4,\"link-to\",[\"papers\"],null,{\"statements\":[[0,\"Papers\"]],\"parameters\":[]},null],[6,\"br\"],[8],[9],[0,\"\\n\"],[4,\"link-to\",[\"staplers\"],null,{\"statements\":[[0,\"Staplers\"]],\"parameters\":[]},null],[6,\"br\"],[8],[9],[6,\"br\"],[8],[9],[0,\"\\n\"],[4,\"office-stapler\",null,[[\"pressed\"],[[26,\"action\",[[21,0,[]],\"pressed\"],null]]],{\"statements\":[[0,\"\\tFavourite Number:\"],[1,[21,3,[\"mynum\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tColor:\"],[1,[21,3,[\"color\"]],false],[6,\"br\"],[8],[9],[0,\"\\n    Number of Staples:\"],[1,[21,3,[\"staples\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tInside Component\\n\"]],\"parameters\":[3]},null],[0,\"\\n\"],[6,\"h1\"],[8],[0,\"Second Exmaple\"],[9],[0,\"\\n\"],[4,\"office-supplies\",null,null,{\"statements\":[[0,\"\\t\"],[4,\"component\",[[21,1,[\"stapler\"]]],null,{\"statements\":[[6,\"br\"],[8],[9],[0,\"\\n\\t\\t\"],[1,[21,2,[\"mynum\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\t\\t\"],[1,[21,2,[\"color\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[2]},null],[0,\"\\t\"],[1,[21,1,[\"chair\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[1]},null]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "aM+C4V9Z", "block": "{\"symbols\":[\"book\",\"office\",\"prop\",\"prop\"],\"statements\":[[4,\"link-to\",[\"application\"],null,{\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9]],\"parameters\":[]},null],[0,\"\\n\"],[4,\"link-to\",[\"papers\"],null,{\"statements\":[[0,\"Papers\"]],\"parameters\":[]},null],[6,\"br\"],[8],[9],[0,\"\\n\"],[4,\"link-to\",[\"staplers\"],null,{\"statements\":[[0,\"Staplers\"]],\"parameters\":[]},null],[6,\"br\"],[8],[9],[6,\"br\"],[8],[9],[0,\"\\n\"],[4,\"office-stapler\",null,[[\"pressed\"],[[26,\"action\",[[21,0,[]],\"pressed\"],null]]],{\"statements\":[[0,\"\\tFavourite Number:\"],[1,[21,4,[\"mynum\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tColor:\"],[1,[21,4,[\"color\"]],false],[6,\"br\"],[8],[9],[0,\"\\n    Number of Staples:\"],[1,[21,4,[\"staples\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tInside Component\\n\"]],\"parameters\":[4]},null],[0,\"\\n\"],[6,\"h1\"],[8],[0,\"Second Exmaple\"],[9],[0,\"\\n\"],[4,\"office-supplies\",null,null,{\"statements\":[[0,\"\\t\"],[4,\"component\",[[21,2,[\"stapler\"]]],null,{\"statements\":[[6,\"br\"],[8],[9],[0,\"\\n\\t\\t\"],[1,[21,3,[\"mynum\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\t\\t\"],[1,[21,3,[\"color\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[3]},null],[0,\"\\t\"],[1,[21,2,[\"chair\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[2]},null],[6,\"br\"],[8],[9],[6,\"br\"],[8],[9],[0,\"\\n\\n\\n\"],[4,\"each\",[[22,[\"model\"]]],null,{\"statements\":[[0,\"\\tTitle:\"],[1,[21,1,[\"title\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tAuthor:\"],[1,[21,1,[\"author\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tYear:\"],[1,[21,1,[\"year\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[1]},null],[6,\"br\"],[8],[9],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
 });
 define("ember-quickstart/templates/components/fruit-list", ["exports"], function (exports) {
   "use strict";
@@ -403,6 +574,31 @@ define("ember-quickstart/templates/staplers", ["exports"], function (exports) {
   });
   exports.default = Ember.HTMLBars.template({ "id": "rAFhX9v8", "block": "{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false],[0,\"\\nThis is the staplers route.\"]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/staplers.hbs" } });
 });
+define('ember-quickstart/tests/mirage/mirage.lint-test', [], function () {
+  'use strict';
+
+  QUnit.module('ESLint | mirage');
+
+  QUnit.test('mirage/config.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'mirage/config.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('mirage/factories/book.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'mirage/factories/book.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('mirage/scenarios/default.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'mirage/scenarios/default.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('mirage/serializers/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'mirage/serializers/application.js should pass ESLint\n\n');
+  });
+});
 
 
 define('ember-quickstart/config/environment', [], function() {
@@ -425,6 +621,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("ember-quickstart/app")["default"].create({"name":"ember-quickstart","version":"0.0.0+fd3cf63a"});
+  require("ember-quickstart/app")["default"].create({"name":"ember-quickstart","version":"0.0.0+346caf69"});
 }
 //# sourceMappingURL=ember-quickstart.map

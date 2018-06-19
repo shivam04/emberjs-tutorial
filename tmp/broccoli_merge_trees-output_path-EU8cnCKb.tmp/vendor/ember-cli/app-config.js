@@ -1,1 +1,0 @@
-/Users/shivams/Desktop/ember-quickstart/tmp/config_replace-output_path-agfIhIq9.tmp/app-config.js

@@ -5,6 +5,11 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
 
   QUnit.module('ESLint | app');
 
+  QUnit.test('adapters/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/application.js should pass ESLint\n\n');
+  });
+
   QUnit.test('app.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'app.js should pass ESLint\n\n');
@@ -40,6 +45,11 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
     assert.ok(true, 'controllers/application.js should pass ESLint\n\n');
   });
 
+  QUnit.test('models/book.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/book.js should pass ESLint\n\n');
+  });
+
   QUnit.test('resolver.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'resolver.js should pass ESLint\n\n');
@@ -48,6 +58,11 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
   QUnit.test('router.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'router.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('routes/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/application.js should pass ESLint\n\n');
   });
 
   QUnit.test('routes/papers.js', function (assert) {
@@ -247,9 +262,24 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
     assert.ok(true, 'test-helper.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/adapters/application-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/adapters/application-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/controllers/application-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/controllers/application-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/models/book-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/book-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/routes/application-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/application-test.js should pass ESLint\n\n');
   });
 
   QUnit.test('unit/routes/papers-test.js', function (assert) {
@@ -262,6 +292,19 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
     assert.ok(true, 'unit/routes/staplers-test.js should pass ESLint\n\n');
   });
 });
+define('ember-quickstart/tests/unit/adapters/application-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Adapter | application', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let adapter = this.owner.lookup('adapter:application');
+      assert.ok(adapter);
+    });
+  });
+});
 define('ember-quickstart/tests/unit/controllers/application-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
   'use strict';
 
@@ -272,6 +315,32 @@ define('ember-quickstart/tests/unit/controllers/application-test', ['qunit', 'em
     (0, _qunit.test)('it exists', function (assert) {
       let controller = this.owner.lookup('controller:application');
       assert.ok(controller);
+    });
+  });
+});
+define('ember-quickstart/tests/unit/models/book-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Model | book', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = Ember.run(() => store.createRecord('book', {}));
+      assert.ok(model);
+    });
+  });
+});
+define('ember-quickstart/tests/unit/routes/application-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Route | application', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:application');
+      assert.ok(route);
     });
   });
 });

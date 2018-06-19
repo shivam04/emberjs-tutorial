@@ -1,1 +1,0 @@
-/Users/shivams/Desktop/ember-quickstart/tmp/funnel-input_base_path-WbLn3T4y.tmp/app-config.js

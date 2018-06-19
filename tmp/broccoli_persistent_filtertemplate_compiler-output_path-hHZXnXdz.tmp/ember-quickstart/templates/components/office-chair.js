@@ -1,1 +1,0 @@
-export default Ember.HTMLBars.template({"id":"26Uqb5Eg","block":"{\"symbols\":[\"&default\"],\"statements\":[[13,1],[0,\"\\nThis is chair.\"]],\"hasEval\":false}","meta":{"moduleName":"ember-quickstart/templates/components/office-chair.hbs"}});

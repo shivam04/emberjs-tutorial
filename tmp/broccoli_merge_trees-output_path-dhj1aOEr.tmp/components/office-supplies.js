@@ -1,1 +1,0 @@
-/Users/shivams/Desktop/ember-quickstart/app/components/office-supplies.js

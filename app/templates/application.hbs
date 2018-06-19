@@ -15,4 +15,12 @@
 		{{prop.color}}<br>
 	{{/office.stapler}}
 	{{office.chair}}<br>
-{{/office-supplies}}
+{{/office-supplies}}<br><br>
+
+
+{{#each model as |book|}}
+	Title:{{book.title}}<br>
+	Author:{{book.author}}<br>
+	Year:{{book.year}}<br>
+{{/each}}<br><br>
+{{outlet}}
