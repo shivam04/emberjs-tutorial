@@ -41,12 +41,17 @@ define('ember-quickstart/components/fruit-list', ['exports'], function (exports)
 	});
 });
 define('ember-quickstart/components/office-stapler', ['exports'], function (exports) {
-  'use strict';
+	'use strict';
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = Ember.Component.extend({});
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = Ember.Component.extend({
+		num: 100,
+		click() {
+			this.attrs.pressed();
+		}
+	});
 });
 define("ember-quickstart/components/template-names", ["exports"], function (exports) {
 	"use strict";
@@ -76,6 +81,21 @@ define('ember-quickstart/components/welcome-page', ['exports', 'ember-welcome-pa
       return _welcomePage.default;
     }
   });
+});
+define('ember-quickstart/controllers/application', ['exports'], function (exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = Ember.Controller.extend({
+		actions: {
+			pressed() {
+				alert('You clicked this');
+			}
+		}
+
+	});
 });
 define('ember-quickstart/helpers/app-version', ['exports', 'ember-quickstart/config/environment', 'ember-cli-app-version/utils/regexp'], function (exports, _environment, _regexp) {
   'use strict';
@@ -301,7 +321,7 @@ define("ember-quickstart/templates/application", ["exports"], function (exports)
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "ClbMu2nc", "block": "{\"symbols\":[],\"statements\":[[4,\"link-to\",[\"application\"],null,{\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9]],\"parameters\":[]},null],[0,\"\\n\"],[4,\"link-to\",[\"papers\"],null,{\"statements\":[[0,\"Papers\"]],\"parameters\":[]},null],[6,\"br\"],[8],[9],[0,\"\\n\"],[4,\"link-to\",[\"staplers\"],null,{\"statements\":[[0,\"Staplers\"]],\"parameters\":[]},null],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "e6fUa1uC", "block": "{\"symbols\":[\"prop\"],\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9],[0,\"\\n\"],[4,\"office-stapler\",null,[[\"pressed\"],[[26,\"action\",[[21,0,[]],\"pressed\"],null]]],{\"statements\":[[0,\"\\tFavourite Number:\"],[1,[21,1,[\"mynum\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tColor:\"],[1,[21,1,[\"color\"]],false],[6,\"br\"],[8],[9],[0,\"\\n    Number of Staples:\"],[1,[21,1,[\"staples\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tInside Component\\n\"]],\"parameters\":[1]},null]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
 });
 define("ember-quickstart/templates/components/fruit-list", ["exports"], function (exports) {
   "use strict";
@@ -317,7 +337,7 @@ define("ember-quickstart/templates/components/office-stapler", ["exports"], func
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "q1/BuUkZ", "block": "{\"symbols\":[\"&default\"],\"statements\":[[13,1]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/office-stapler.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "n5yOonJi", "block": "{\"symbols\":[\"&default\"],\"statements\":[[13,1,[[26,\"hash\",null,[[\"color\",\"staples\",\"mynum\"],[\"red\",\"250\",[22,[\"num\"]]]]]]],[6,\"br\"],[8],[9]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/office-stapler.hbs" } });
 });
 define("ember-quickstart/templates/components/template-names", ["exports"], function (exports) {
   "use strict";

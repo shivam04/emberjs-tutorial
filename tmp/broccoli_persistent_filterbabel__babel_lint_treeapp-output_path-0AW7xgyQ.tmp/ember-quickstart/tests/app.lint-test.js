@@ -15,12 +15,17 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
 
   QUnit.test('components/office-stapler.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'components/office-stapler.js should pass ESLint\n\n');
+    assert.ok(false, 'components/office-stapler.js should pass ESLint\n\n6:8 - Do not use this.attrs (ember/no-attrs-in-components)');
   });
 
   QUnit.test('components/template-names.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/template-names.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('controllers/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'controllers/application.js should pass ESLint\n\n');
   });
 
   QUnit.test('resolver.js', function (assert) {

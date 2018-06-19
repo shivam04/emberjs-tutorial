@@ -17,12 +17,17 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
 
   QUnit.test('components/office-stapler.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'components/office-stapler.js should pass ESLint\n\n');
+    assert.ok(false, 'components/office-stapler.js should pass ESLint\n\n6:8 - Do not use this.attrs (ember/no-attrs-in-components)');
   });
 
   QUnit.test('components/template-names.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/template-names.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('controllers/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'controllers/application.js should pass ESLint\n\n');
   });
 
   QUnit.test('resolver.js', function (assert) {
@@ -164,6 +169,11 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
     assert.ok(true, 'test-helper.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/controllers/application-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/application-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/routes/papers-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/papers-test.js should pass ESLint\n\n');
@@ -172,6 +182,19 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
   QUnit.test('unit/routes/staplers-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/staplers-test.js should pass ESLint\n\n');
+  });
+});
+define('ember-quickstart/tests/unit/controllers/application-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Controller | application', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let controller = this.owner.lookup('controller:application');
+      assert.ok(controller);
+    });
   });
 });
 define('ember-quickstart/tests/unit/routes/papers-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {

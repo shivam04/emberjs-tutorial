@@ -1,4 +1,7 @@
-{{#link-to "application"}}<h2 id="title">Welcome to ember</h2>{{/link-to}}
-{{ link-to "Papers" "papers" }}<br>
-{{ link-to "Staplers" "staplers" }}<br>
-{{outlet}}
+<h2 id="title">Welcome to ember</h2>
+{{#office-stapler pressed=(action "pressed") as |prop|}}
+	Favourite Number:{{prop.mynum}}<br>
+	Color:{{prop.color}}<br>
+    Number of Staples:{{prop.staples}}<br>
+	Inside Component
+{{/office-stapler}}
