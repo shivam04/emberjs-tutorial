@@ -15,6 +15,11 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
     assert.ok(false, 'components/fruit-list.js should pass ESLint\n\n9:30 - Do not use this.attrs (ember/no-attrs-in-components)');
   });
 
+  QUnit.test('components/office-stapler.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/office-stapler.js should pass ESLint\n\n');
+  });
+
   QUnit.test('components/template-names.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/template-names.js should pass ESLint\n\n');
@@ -69,6 +74,35 @@ define('ember-quickstart/tests/integration/components/fruit-list-test', ['qunit'
     });
   });
 });
+define('ember-quickstart/tests/integration/components/office-stapler-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
+  'use strict';
+
+  (0, _qunit.module)('Integration | Component | office-stapler', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "ArfFCxri",
+        "block": "{\"symbols\":[],\"statements\":[[1,[20,\"office-stapler\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+
+      assert.equal(this.element.textContent.trim(), '');
+
+      // Template block usage:
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "yZ8eh5rp",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"office-stapler\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
 define('ember-quickstart/tests/integration/components/template-names-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
   'use strict';
 
@@ -113,6 +147,11 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
   QUnit.test('integration/components/fruit-list-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'integration/components/fruit-list-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('integration/components/office-stapler-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/office-stapler-test.js should pass ESLint\n\n');
   });
 
   QUnit.test('integration/components/template-names-test.js', function (assert) {
