@@ -1,0 +1,1 @@
+/Users/shivams/Desktop/ember-quickstart/app/components/fruit-list.js

@@ -20,6 +20,26 @@ define('ember-quickstart/app', ['exports', 'ember-quickstart/resolver', 'ember-l
 
   exports.default = App;
 });
+define('ember-quickstart/components/fruit-list', ['exports'], function (exports) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = Ember.Component.extend({
+		tagName: "span",
+		classNames: ['shivam'],
+		init() {
+			this._super(...arguments);
+			this.arrayOfFruits = Ember.String.w(this.attrs.fruits);
+		},
+		actions: {
+			add(val) {
+				this.get('arrayOfFruits').pushObject(val);
+			}
+		}
+	});
+});
 define("ember-quickstart/components/template-names", ["exports"], function (exports) {
 	"use strict";
 
@@ -253,7 +273,15 @@ define("ember-quickstart/templates/application", ["exports"], function (exports)
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "UdIBTvgi", "block": "{\"symbols\":[],\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9],[0,\"\\n\"],[1,[20,\"template-names\"],false],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "4L8kcy8m", "block": "{\"symbols\":[],\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9],[0,\"\\n\"],[1,[20,\"template-names\"],false],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[26,\"fruit-list\",null,[[\"fruits\"],[\"aple orange grape\"]]],false],[6,\"br\"],[8],[9],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[26,\"fruit-list\",null,[[\"fruits\"],[\"aple orange banana\"]]],false],[0,\"\\n\"],[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
+});
+define("ember-quickstart/templates/components/fruit-list", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "nsMBsD4G", "block": "{\"symbols\":[\"fruit\"],\"statements\":[[1,[26,\"input\",null,[[\"value\"],[[22,[\"textValue\"]]]]],false],[0,\"\\n\"],[6,\"button\"],[3,\"action\",[[21,0,[]],\"add\",[22,[\"textValue\"]]]],[8],[0,\"add\"],[9],[6,\"br\"],[8],[9],[0,\"\\n\"],[4,\"each\",[[22,[\"arrayOfFruits\"]]],null,{\"statements\":[[0,\"fruit: \"],[1,[21,1,[]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[1]},null]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/fruit-list.hbs" } });
 });
 define("ember-quickstart/templates/components/template-names", ["exports"], function (exports) {
   "use strict";
