@@ -5,3 +5,12 @@
     Number of Staples:{{prop.staples}}<br>
 	Inside Component
 {{/office-stapler}}
+
+<h1>Second Exmaple</h1>
+{{#office-supplies as |office|}}
+	{{#office.stapler as |prop|}}<br>
+		{{prop.mynum}}<br>
+		{{prop.color}}<br>
+	{{/office.stapler}}
+	{{office.chair}}<br>
+{{/office-supplies}}

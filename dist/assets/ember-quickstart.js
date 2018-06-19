@@ -40,6 +40,14 @@ define('ember-quickstart/components/fruit-list', ['exports'], function (exports)
 		}
 	});
 });
+define('ember-quickstart/components/office-chair', ['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.Component.extend({});
+});
 define('ember-quickstart/components/office-stapler', ['exports'], function (exports) {
 	'use strict';
 
@@ -52,6 +60,14 @@ define('ember-quickstart/components/office-stapler', ['exports'], function (expo
 			this.attrs.pressed();
 		}
 	});
+});
+define('ember-quickstart/components/office-supplies', ['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.Component.extend({});
 });
 define("ember-quickstart/components/template-names", ["exports"], function (exports) {
 	"use strict";
@@ -321,7 +337,7 @@ define("ember-quickstart/templates/application", ["exports"], function (exports)
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "e6fUa1uC", "block": "{\"symbols\":[\"prop\"],\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9],[0,\"\\n\"],[4,\"office-stapler\",null,[[\"pressed\"],[[26,\"action\",[[21,0,[]],\"pressed\"],null]]],{\"statements\":[[0,\"\\tFavourite Number:\"],[1,[21,1,[\"mynum\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tColor:\"],[1,[21,1,[\"color\"]],false],[6,\"br\"],[8],[9],[0,\"\\n    Number of Staples:\"],[1,[21,1,[\"staples\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tInside Component\\n\"]],\"parameters\":[1]},null]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "Z0DlxvUn", "block": "{\"symbols\":[\"office\",\"prop\",\"prop\"],\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9],[0,\"\\n\"],[4,\"office-stapler\",null,[[\"pressed\"],[[26,\"action\",[[21,0,[]],\"pressed\"],null]]],{\"statements\":[[0,\"\\tFavourite Number:\"],[1,[21,3,[\"mynum\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tColor:\"],[1,[21,3,[\"color\"]],false],[6,\"br\"],[8],[9],[0,\"\\n    Number of Staples:\"],[1,[21,3,[\"staples\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\tInside Component\\n\"]],\"parameters\":[3]},null],[0,\"\\n\"],[6,\"h1\"],[8],[0,\"Second Exmaple\"],[9],[0,\"\\n\"],[4,\"office-supplies\",null,null,{\"statements\":[[0,\"\\t\"],[4,\"component\",[[21,1,[\"stapler\"]]],null,{\"statements\":[[6,\"br\"],[8],[9],[0,\"\\n\\t\\t\"],[1,[21,2,[\"mynum\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\\t\\t\"],[1,[21,2,[\"color\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[2]},null],[0,\"\\t\"],[1,[21,1,[\"chair\"]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[1]},null]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
 });
 define("ember-quickstart/templates/components/fruit-list", ["exports"], function (exports) {
   "use strict";
@@ -331,13 +347,29 @@ define("ember-quickstart/templates/components/fruit-list", ["exports"], function
   });
   exports.default = Ember.HTMLBars.template({ "id": "nsMBsD4G", "block": "{\"symbols\":[\"fruit\"],\"statements\":[[1,[26,\"input\",null,[[\"value\"],[[22,[\"textValue\"]]]]],false],[0,\"\\n\"],[6,\"button\"],[3,\"action\",[[21,0,[]],\"add\",[22,[\"textValue\"]]]],[8],[0,\"add\"],[9],[6,\"br\"],[8],[9],[0,\"\\n\"],[4,\"each\",[[22,[\"arrayOfFruits\"]]],null,{\"statements\":[[0,\"fruit: \"],[1,[21,1,[]],false],[6,\"br\"],[8],[9],[0,\"\\n\"]],\"parameters\":[1]},null]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/fruit-list.hbs" } });
 });
+define("ember-quickstart/templates/components/office-chair", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "26Uqb5Eg", "block": "{\"symbols\":[\"&default\"],\"statements\":[[13,1],[0,\"\\nThis is chair.\"]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/office-chair.hbs" } });
+});
 define("ember-quickstart/templates/components/office-stapler", ["exports"], function (exports) {
   "use strict";
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "n5yOonJi", "block": "{\"symbols\":[\"&default\"],\"statements\":[[13,1,[[26,\"hash\",null,[[\"color\",\"staples\",\"mynum\"],[\"red\",\"250\",[22,[\"num\"]]]]]]],[6,\"br\"],[8],[9]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/office-stapler.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "fe2wcP/R", "block": "{\"symbols\":[\"&default\"],\"statements\":[[13,1,[[26,\"hash\",null,[[\"color\",\"staples\",\"mynum\"],[\"red\",\"250\",[22,[\"num\"]]]]]]],[6,\"br\"],[8],[9],[0,\"\\n\\nThis is a stapler.\"]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/office-stapler.hbs" } });
+});
+define("ember-quickstart/templates/components/office-supplies", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "uGUtbO0F", "block": "{\"symbols\":[\"&default\"],\"statements\":[[13,1,[[26,\"hash\",null,[[\"stapler\",\"chair\"],[[26,\"component\",[\"office-stapler\"],null],[26,\"component\",[\"office-chair\"],null]]]]]]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/office-supplies.hbs" } });
 });
 define("ember-quickstart/templates/components/template-names", ["exports"], function (exports) {
   "use strict";
