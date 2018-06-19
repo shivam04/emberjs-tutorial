@@ -20,6 +20,22 @@ define('ember-quickstart/app', ['exports', 'ember-quickstart/resolver', 'ember-l
 
   exports.default = App;
 });
+define("ember-quickstart/components/template-names", ["exports"], function (exports) {
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = Ember.Component.extend({
+		firstName: "Shivam",
+		lastName: "Sinha",
+		actions: {
+			press(val) {
+				alert('hello! ' + val);
+			}
+		}
+	});
+});
 define('ember-quickstart/components/welcome-page', ['exports', 'ember-welcome-page/components/welcome-page'], function (exports, _welcomePage) {
   'use strict';
 
@@ -237,7 +253,15 @@ define("ember-quickstart/templates/application", ["exports"], function (exports)
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "6H50O19F", "block": "{\"symbols\":[],\"statements\":[[1,[20,\"welcome-page\"],false],[0,\"\\n\"],[0,\"\\n\"],[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "UdIBTvgi", "block": "{\"symbols\":[],\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9],[0,\"\\n\"],[1,[20,\"template-names\"],false],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
+});
+define("ember-quickstart/templates/components/template-names", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "aUw+DnNC", "block": "{\"symbols\":[\"&default\"],\"statements\":[[0,\"Hello \"],[1,[20,\"firstName\"],false],[0,\" \"],[1,[20,\"lastName\"],false],[6,\"br\"],[8],[9],[0,\"\\n\\n\"],[1,[26,\"input\",null,[[\"value\"],[[22,[\"myValue\"]]]]],false],[6,\"br\"],[8],[9],[0,\"\\n\"],[6,\"button\"],[3,\"action\",[[21,0,[]],\"press\",[22,[\"myValue\"]]]],[8],[0,\"Press Me\"],[9],[0,\"\\n\"],[13,1]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/template-names.hbs" } });
 });
 
 
