@@ -1,0 +1,1 @@
+/Users/shivams/Desktop/ember-quickstart/tmp/broccoli_merge_trees-input_base_path-b4NUPSIq.tmp/1/ember-cli-shims/deprecations.js

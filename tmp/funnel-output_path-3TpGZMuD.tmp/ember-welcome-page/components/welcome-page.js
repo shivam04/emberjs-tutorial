@@ -1,0 +1,1 @@
+/Users/shivams/Desktop/ember-quickstart/tmp/funnel-input_base_path-3En9EA8a.tmp/components/welcome-page.js

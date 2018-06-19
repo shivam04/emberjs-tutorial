@@ -1,0 +1,1 @@
+/Users/shivams/Desktop/ember-quickstart/tmp/funnel-input_base_path-ryGaAXAW.tmp/adapters/json-api.js

@@ -1,0 +1,1 @@
+/Users/shivams/Desktop/ember-quickstart/tmp/funnel-input_base_path-CSz1oqE4.tmp/pretender.js

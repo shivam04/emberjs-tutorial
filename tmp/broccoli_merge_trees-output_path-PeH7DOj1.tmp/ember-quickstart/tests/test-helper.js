@@ -1,0 +1,1 @@
+/Users/shivams/Desktop/ember-quickstart/tmp/broccoli_merge_trees-input_base_path-c6YZK2c4.tmp/5/ember-quickstart/tests/test-helper.js
