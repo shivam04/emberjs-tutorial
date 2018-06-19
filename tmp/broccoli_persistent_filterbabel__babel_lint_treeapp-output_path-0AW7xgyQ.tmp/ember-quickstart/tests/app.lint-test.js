@@ -8,6 +8,11 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
     assert.ok(true, 'app.js should pass ESLint\n\n');
   });
 
+  QUnit.test('components/template-names.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/template-names.js should pass ESLint\n\n');
+  });
+
   QUnit.test('resolver.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'resolver.js should pass ESLint\n\n');
