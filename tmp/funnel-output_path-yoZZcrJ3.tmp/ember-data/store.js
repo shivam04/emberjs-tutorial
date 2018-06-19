@@ -1,0 +1,1 @@
+/Users/shivams/Desktop/ember-quickstart/node_modules/ember-data/addon/store.js
