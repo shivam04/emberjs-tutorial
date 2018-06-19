@@ -250,9 +250,28 @@ define('ember-quickstart/router', ['exports', 'ember-quickstart/config/environme
     rootURL: _environment.default.rootURL
   });
 
-  Router.map(function () {});
+  Router.map(function () {
+    this.route('papers');
+    this.route('staplers');
+  });
 
   exports.default = Router;
+});
+define('ember-quickstart/routes/papers', ['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.Route.extend({});
+});
+define('ember-quickstart/routes/staplers', ['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.Route.extend({});
 });
 define('ember-quickstart/services/ajax', ['exports', 'ember-ajax/services/ajax'], function (exports, _ajax) {
   'use strict';
@@ -290,6 +309,22 @@ define("ember-quickstart/templates/components/template-names", ["exports"], func
     value: true
   });
   exports.default = Ember.HTMLBars.template({ "id": "aUw+DnNC", "block": "{\"symbols\":[\"&default\"],\"statements\":[[0,\"Hello \"],[1,[20,\"firstName\"],false],[0,\" \"],[1,[20,\"lastName\"],false],[6,\"br\"],[8],[9],[0,\"\\n\\n\"],[1,[26,\"input\",null,[[\"value\"],[[22,[\"myValue\"]]]]],false],[6,\"br\"],[8],[9],[0,\"\\n\"],[6,\"button\"],[3,\"action\",[[21,0,[]],\"press\",[22,[\"myValue\"]]]],[8],[0,\"Press Me\"],[9],[0,\"\\n\"],[13,1]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/template-names.hbs" } });
+});
+define("ember-quickstart/templates/papers", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "sS031+sX", "block": "{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/papers.hbs" } });
+});
+define("ember-quickstart/templates/staplers", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "op9/kFpT", "block": "{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/staplers.hbs" } });
 });
 
 

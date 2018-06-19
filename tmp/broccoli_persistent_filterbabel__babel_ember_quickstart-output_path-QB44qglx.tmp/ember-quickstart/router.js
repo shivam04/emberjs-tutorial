@@ -11,7 +11,10 @@ define('ember-quickstart/router', ['exports', 'ember-quickstart/config/environme
     rootURL: _environment.default.rootURL
   });
 
-  Router.map(function () {});
+  Router.map(function () {
+    this.route('papers');
+    this.route('staplers');
+  });
 
   exports.default = Router;
 });

@@ -12,7 +12,7 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
 
   QUnit.test('components/fruit-list.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'components/fruit-list.js should pass ESLint\n\n8:23 - Use import { w } from \'@ember/string\'; instead of using Ember.String.w (ember/new-module-imports)\n8:23 - \'Ember\' is not defined. (no-undef)\n8:43 - Do not use this.attrs (ember/no-attrs-in-components)');
+    assert.ok(false, 'components/fruit-list.js should pass ESLint\n\n9:30 - Do not use this.attrs (ember/no-attrs-in-components)');
   });
 
   QUnit.test('components/template-names.js', function (assert) {
@@ -28,6 +28,16 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
   QUnit.test('router.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'router.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('routes/papers.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/papers.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('routes/staplers.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/staplers.js should pass ESLint\n\n');
   });
 });
 define('ember-quickstart/tests/integration/components/fruit-list-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
@@ -113,6 +123,40 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
   QUnit.test('test-helper.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'test-helper.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/routes/papers-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/papers-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/routes/staplers-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/staplers-test.js should pass ESLint\n\n');
+  });
+});
+define('ember-quickstart/tests/unit/routes/papers-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Route | papers', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:papers');
+      assert.ok(route);
+    });
+  });
+});
+define('ember-quickstart/tests/unit/routes/staplers-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Route | staplers', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:staplers');
+      assert.ok(route);
+    });
   });
 });
 define('ember-quickstart/config/environment', [], function() {

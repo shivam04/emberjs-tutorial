@@ -1,11 +1,12 @@
 import Component from '@ember/component';
+import { w } from '@ember/string';
 
 export default Component.extend({
 	tagName: "span",
 	classNames: ['shivam'],
 	init(){
 		this._super(...arguments);
-		this.arrayOfFruits= Ember.String.w(this.attrs.fruits);
+		this.arrayOfFruits= w(this.attrs.fruits);
 	},
 	actions: {
 		add(val){

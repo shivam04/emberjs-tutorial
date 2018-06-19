@@ -17,4 +17,14 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
     assert.expect(1);
     assert.ok(true, 'test-helper.js should pass ESLint\n\n');
   });
+
+  QUnit.test('unit/routes/papers-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/papers-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/routes/staplers-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/staplers-test.js should pass ESLint\n\n');
+  });
 });
