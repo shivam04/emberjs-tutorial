@@ -5,9 +5,19 @@ QUnit.test('integration/components/fruit-list-test.js', function(assert) {
   assert.ok(true, 'integration/components/fruit-list-test.js should pass ESLint\n\n');
 });
 
+QUnit.test('integration/components/office-chair-test.js', function(assert) {
+  assert.expect(1);
+  assert.ok(true, 'integration/components/office-chair-test.js should pass ESLint\n\n');
+});
+
 QUnit.test('integration/components/office-stapler-test.js', function(assert) {
   assert.expect(1);
   assert.ok(true, 'integration/components/office-stapler-test.js should pass ESLint\n\n');
+});
+
+QUnit.test('integration/components/office-supplies-test.js', function(assert) {
+  assert.expect(1);
+  assert.ok(true, 'integration/components/office-supplies-test.js should pass ESLint\n\n');
 });
 
 QUnit.test('integration/components/template-names-test.js', function(assert) {
@@ -18,6 +28,11 @@ QUnit.test('integration/components/template-names-test.js', function(assert) {
 QUnit.test('test-helper.js', function(assert) {
   assert.expect(1);
   assert.ok(true, 'test-helper.js should pass ESLint\n\n');
+});
+
+QUnit.test('unit/controllers/application-test.js', function(assert) {
+  assert.expect(1);
+  assert.ok(true, 'unit/controllers/application-test.js should pass ESLint\n\n');
 });
 
 QUnit.test('unit/routes/papers-test.js', function(assert) {

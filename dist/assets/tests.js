@@ -15,14 +15,29 @@ define('ember-quickstart/tests/app.lint-test', [], function () {
     assert.ok(false, 'components/fruit-list.js should pass ESLint\n\n9:30 - Do not use this.attrs (ember/no-attrs-in-components)');
   });
 
+  QUnit.test('components/office-chair.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/office-chair.js should pass ESLint\n\n');
+  });
+
   QUnit.test('components/office-stapler.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'components/office-stapler.js should pass ESLint\n\n');
+    assert.ok(false, 'components/office-stapler.js should pass ESLint\n\n6:8 - Do not use this.attrs (ember/no-attrs-in-components)');
+  });
+
+  QUnit.test('components/office-supplies.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/office-supplies.js should pass ESLint\n\n');
   });
 
   QUnit.test('components/template-names.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'components/template-names.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('controllers/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'controllers/application.js should pass ESLint\n\n');
   });
 
   QUnit.test('resolver.js', function (assert) {
@@ -74,6 +89,35 @@ define('ember-quickstart/tests/integration/components/fruit-list-test', ['qunit'
     });
   });
 });
+define('ember-quickstart/tests/integration/components/office-chair-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
+  'use strict';
+
+  (0, _qunit.module)('Integration | Component | office-chair', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "+ly2qf2l",
+        "block": "{\"symbols\":[],\"statements\":[[1,[20,\"office-chair\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+
+      assert.equal(this.element.textContent.trim(), '');
+
+      // Template block usage:
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "kXttd64Z",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"office-chair\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
 define('ember-quickstart/tests/integration/components/office-stapler-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
   'use strict';
 
@@ -96,6 +140,35 @@ define('ember-quickstart/tests/integration/components/office-stapler-test', ['qu
       await (0, _testHelpers.render)(Ember.HTMLBars.template({
         "id": "yZ8eh5rp",
         "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"office-stapler\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
+define('ember-quickstart/tests/integration/components/office-supplies-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
+  'use strict';
+
+  (0, _qunit.module)('Integration | Component | office-supplies', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "ftInGEWo",
+        "block": "{\"symbols\":[],\"statements\":[[1,[20,\"office-supplies\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+
+      assert.equal(this.element.textContent.trim(), '');
+
+      // Template block usage:
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "FQLLvo/4",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"office-supplies\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
         "meta": {}
       }));
 
@@ -149,9 +222,19 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
     assert.ok(true, 'integration/components/fruit-list-test.js should pass ESLint\n\n');
   });
 
+  QUnit.test('integration/components/office-chair-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/office-chair-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('integration/components/office-stapler-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'integration/components/office-stapler-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('integration/components/office-supplies-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/office-supplies-test.js should pass ESLint\n\n');
   });
 
   QUnit.test('integration/components/template-names-test.js', function (assert) {
@@ -164,6 +247,11 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
     assert.ok(true, 'test-helper.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/controllers/application-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/application-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/routes/papers-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/papers-test.js should pass ESLint\n\n');
@@ -172,6 +260,19 @@ define('ember-quickstart/tests/tests.lint-test', [], function () {
   QUnit.test('unit/routes/staplers-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/staplers-test.js should pass ESLint\n\n');
+  });
+});
+define('ember-quickstart/tests/unit/controllers/application-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Controller | application', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let controller = this.owner.lookup('controller:application');
+      assert.ok(controller);
+    });
   });
 });
 define('ember-quickstart/tests/unit/routes/papers-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
