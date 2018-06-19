@@ -1,5 +1,4 @@
-<h2 id="title">Welcome to ember</h2>
-{{ template-names }}<br>
-{{ fruit-list fruits = "aple orange grape"}}<br><br>
-{{ fruit-list fruits = "aple orange banana"}}
+{{#link-to "application"}}<h2 id="title">Welcome to ember</h2>{{/link-to}}
+{{ link-to "Papers" "papers" }}<br>
+{{ link-to "Staplers" "staplers" }}<br>
 {{outlet}}

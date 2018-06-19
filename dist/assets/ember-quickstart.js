@@ -251,8 +251,9 @@ define('ember-quickstart/router', ['exports', 'ember-quickstart/config/environme
   });
 
   Router.map(function () {
-    this.route('papers');
-    this.route('staplers');
+    this.route('papers', { path: '/about/' });
+    this.route('staplers', { path: '/my-staplers/' });
+    this.route('page-not-found', { path: '/*wildcard' });
   });
 
   exports.default = Router;
@@ -292,7 +293,7 @@ define("ember-quickstart/templates/application", ["exports"], function (exports)
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "4L8kcy8m", "block": "{\"symbols\":[],\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9],[0,\"\\n\"],[1,[20,\"template-names\"],false],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[26,\"fruit-list\",null,[[\"fruits\"],[\"aple orange grape\"]]],false],[6,\"br\"],[8],[9],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[26,\"fruit-list\",null,[[\"fruits\"],[\"aple orange banana\"]]],false],[0,\"\\n\"],[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "ClbMu2nc", "block": "{\"symbols\":[],\"statements\":[[4,\"link-to\",[\"application\"],null,{\"statements\":[[6,\"h2\"],[10,\"id\",\"title\"],[8],[0,\"Welcome to ember\"],[9]],\"parameters\":[]},null],[0,\"\\n\"],[4,\"link-to\",[\"papers\"],null,{\"statements\":[[0,\"Papers\"]],\"parameters\":[]},null],[6,\"br\"],[8],[9],[0,\"\\n\"],[4,\"link-to\",[\"staplers\"],null,{\"statements\":[[0,\"Staplers\"]],\"parameters\":[]},null],[6,\"br\"],[8],[9],[0,\"\\n\"],[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/application.hbs" } });
 });
 define("ember-quickstart/templates/components/fruit-list", ["exports"], function (exports) {
   "use strict";
@@ -310,13 +311,21 @@ define("ember-quickstart/templates/components/template-names", ["exports"], func
   });
   exports.default = Ember.HTMLBars.template({ "id": "aUw+DnNC", "block": "{\"symbols\":[\"&default\"],\"statements\":[[0,\"Hello \"],[1,[20,\"firstName\"],false],[0,\" \"],[1,[20,\"lastName\"],false],[6,\"br\"],[8],[9],[0,\"\\n\\n\"],[1,[26,\"input\",null,[[\"value\"],[[22,[\"myValue\"]]]]],false],[6,\"br\"],[8],[9],[0,\"\\n\"],[6,\"button\"],[3,\"action\",[[21,0,[]],\"press\",[22,[\"myValue\"]]]],[8],[0,\"Press Me\"],[9],[0,\"\\n\"],[13,1]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/components/template-names.hbs" } });
 });
+define("ember-quickstart/templates/page-not-found", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "pFAbNxN8", "block": "{\"symbols\":[],\"statements\":[[6,\"h1\"],[8],[0,\"Not Found\"],[9]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/page-not-found.hbs" } });
+});
 define("ember-quickstart/templates/papers", ["exports"], function (exports) {
   "use strict";
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "sS031+sX", "block": "{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/papers.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "1MgIaHvP", "block": "{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false],[0,\"\\nThis is the papers route.\"]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/papers.hbs" } });
 });
 define("ember-quickstart/templates/staplers", ["exports"], function (exports) {
   "use strict";
@@ -324,7 +333,7 @@ define("ember-quickstart/templates/staplers", ["exports"], function (exports) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "op9/kFpT", "block": "{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/staplers.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "rAFhX9v8", "block": "{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false],[0,\"\\nThis is the staplers route.\"]],\"hasEval\":false}", "meta": { "moduleName": "ember-quickstart/templates/staplers.hbs" } });
 });
 
 

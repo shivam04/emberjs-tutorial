@@ -1,0 +1,1 @@
+export default Ember.HTMLBars.template({"id":"pFAbNxN8","block":"{\"symbols\":[],\"statements\":[[6,\"h1\"],[8],[0,\"Not Found\"],[9]],\"hasEval\":false}","meta":{"moduleName":"ember-quickstart/templates/page-not-found.hbs"}});

@@ -7,8 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('papers');
-  this.route('staplers');
+  this.route('papers',{path: '/about/'});
+  this.route('staplers',{path: '/my-staplers/'});
+  this.route('page-not-found',{path: '/*wildcard'});
 });
 
 export default Router;

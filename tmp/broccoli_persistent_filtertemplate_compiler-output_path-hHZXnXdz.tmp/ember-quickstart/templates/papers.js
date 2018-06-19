@@ -1,1 +1,1 @@
-export default Ember.HTMLBars.template({"id":"sS031+sX","block":"{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false]],\"hasEval\":false}","meta":{"moduleName":"ember-quickstart/templates/papers.hbs"}});
+export default Ember.HTMLBars.template({"id":"1MgIaHvP","block":"{\"symbols\":[],\"statements\":[[1,[20,\"outlet\"],false],[0,\"\\nThis is the papers route.\"]],\"hasEval\":false}","meta":{"moduleName":"ember-quickstart/templates/papers.hbs"}});
